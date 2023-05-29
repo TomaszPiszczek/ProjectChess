@@ -103,7 +103,7 @@ public partial class ChessContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
-            entity.Property(e => e.AdressId).HasColumnName("adress_id");
+            entity.Property(e => e.CountryId).HasColumnName("country_id");
             entity.Property(e => e.Date)
                 .HasColumnType("date")
                 .HasColumnName("date");
@@ -118,7 +118,7 @@ public partial class ChessContext : DbContext
                 .HasColumnName("surname");
 
             entity.HasOne(d => d.Adress).WithMany(p => p.Players)
-                .HasForeignKey(d => d.AdressId)
+                .HasForeignKey(d => d.CountryId)
                 .HasConstraintName("FK_szachiści_adresy");
         });
 

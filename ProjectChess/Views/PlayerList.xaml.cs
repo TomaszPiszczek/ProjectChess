@@ -13,29 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ProjectChess.ViewModels;
 
-namespace ProjectChess
+namespace ProjectChess.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Logika interakcji dla klasy PlayerList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PlayerList : UserControl
     {
-        public MainWindow()
+        public PlayerList()
         {
             InitializeComponent();
-        }
-
-        private void btnRanking_Click(object sender, RoutedEventArgs e)
-        {
-          
-        }
-
-        private void btnPlayers_Click(object sender, RoutedEventArgs e)
-        {
-            lblWindowName.Content = "Player List";
-            DataContext = new PlayerViewModel();
+            using(ChessContext db = new ChessContext())
+            {
+                List<Player> list =db.Players.ToList();
+                gridPlayer.ItemsSource = list;
+            }
         }
     }
 }

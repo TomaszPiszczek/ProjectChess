@@ -12,10 +12,22 @@ public partial class Player
     public string Surname { get; set; } = null!;
 
     public int Rank { get; set; }
+    public int Age
+    {
+        get
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - Date.Year;
+            if (today < Date.AddYears(age))
+                age--;
+
+            return age;
+        }
+    }
 
     public DateTime Date { get; set; }
 
-    public int AdressId { get; set; }
+    public int CountryId { get; set; }
 
     public virtual Adress Adress { get; set; } = null!;
 
