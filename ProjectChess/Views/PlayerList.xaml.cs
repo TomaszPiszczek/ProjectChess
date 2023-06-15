@@ -26,7 +26,7 @@ namespace ProjectChess.Views
             InitializeComponent();
             using(ChessContext db = new ChessContext())
             {
-                List<Player> list =db.Players.ToList();
+                List<Player> list = db.Player.ToList() ;
                 gridPlayer.ItemsSource = list;
             }
         }
