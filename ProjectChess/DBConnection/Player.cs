@@ -28,7 +28,7 @@ public partial class Player
     public DateTime Date { get; set; }
 
     public int CountryId { get; set; }
-
+      
     public virtual Adress Adress { get; set; } = null!;
 
     public virtual ICollection<Match> MatchPlayer1s { get; set; } = new List<Match>();

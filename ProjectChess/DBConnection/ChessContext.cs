@@ -98,7 +98,7 @@ public partial class ChessContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK_szachiści");
 
-            entity.ToTable("players");
+            entity.ToTable("player");
 
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
