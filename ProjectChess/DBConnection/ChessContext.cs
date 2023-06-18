@@ -36,8 +36,8 @@ public partial class ChessContext : DbContext
             entity.ToTable("adress");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("id");
             entity.Property(e => e.Country)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -51,8 +51,8 @@ public partial class ChessContext : DbContext
             entity.ToTable("comment");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+                   .ValueGeneratedOnAdd()
+                     .HasColumnName("id");
             entity.Property(e => e.Author)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -71,8 +71,8 @@ public partial class ChessContext : DbContext
             entity.ToTable("match");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("id");
             entity.Property(e => e.Date)
                 .HasColumnType("date")
                 .HasColumnName("date");
@@ -101,7 +101,7 @@ public partial class ChessContext : DbContext
             entity.ToTable("player");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                 .HasColumnName("id");
             entity.Property(e => e.CountryId).HasColumnName("country_id");
             entity.Property(e => e.Date)

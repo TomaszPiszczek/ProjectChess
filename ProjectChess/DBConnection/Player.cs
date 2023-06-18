@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectChess.DBConnection;
 
 public partial class Player
 {
+    
     public int Id { get; set; }
 
     public string Name { get; set; } = null!;
@@ -25,10 +28,13 @@ public partial class Player
         }
     }
 
+    [NotMapped]
+    public string CountryName => Adress?.Country;
+
     public DateTime Date { get; set; }
    
     public int CountryId { get; set; }
-      
+
     public virtual Adress Adress { get; set; } = null!;
 
     public virtual ICollection<Match> MatchPlayer1s { get; set; } = new List<Match>();

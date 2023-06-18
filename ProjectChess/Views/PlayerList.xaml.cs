@@ -30,5 +30,11 @@ namespace ProjectChess.Views
                 gridPlayer.ItemsSource = list;
             }
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddPlayer page = new AddPlayer();
+            page.ShowDialog();
+        }
     }
 }
