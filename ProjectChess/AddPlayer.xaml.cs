@@ -35,7 +35,7 @@ namespace ProjectChess
         {
             this.Close();
         }
-
+        public Player player;
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (name.Text.Trim() == "" || surname.Text.Trim() =="" || rank.Text.Trim() == "")
@@ -45,32 +45,88 @@ namespace ProjectChess
             else {
             using(ChessContext db = new ChessContext())
                 {
-                    Player player = new Player();
-                    player.Name = name.Text;
-                    player.Surname = surname.Text;
-                    try
+                    if(player != null && player.Id !=0) 
                     {
-                        player.Rank = int.Parse(rank.Text);
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show("Ranking musi być liczbą");
-                    }
-                    DateTime selectedDate = birthday.SelectedDate ?? DateTime.Now;
-                    player.Date = selectedDate;
-                    db.Player.Add(player);
-                    if (countryComboBox.SelectedItem is Adress selectedAddress)
-                    {
-                        player.CountryId = selectedAddress.Id;
+                        Player update = new Player();
+                        update.Id = player.Id;
+                        update.Name = name.Text;
+                        update.Surname = surname.Text;
+                        try
+                        {
+                            update.Rank = int.Parse(rank.Text);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ranking musi być liczbą");
+                        }
+
+                        DateTime selectedDate = birthday.SelectedDate ?? DateTime.Now;
+                        update.Date = selectedDate;
+
+                        if (countryComboBox.SelectedItem is Adress selectedAddress)
+                        {
+                            update.CountryId = selectedAddress.Id;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wybierz kraj");
+                            return;
+                        }
+
+
+                        db.Player.Update(update);
+                        db.SaveChanges();
+                        MessageBox.Show("Pomyslnie zaktualizowano" + update.Id + update.Name + update.Surname);
+
                     }
                     else
                     {
-                        MessageBox.Show("Wybierz kraj");
-                        return;
+                        Player player = new Player();
+                        player.Name = name.Text;
+                        player.Surname = surname.Text;
+                        try
+                        {
+                            player.Rank = int.Parse(rank.Text);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ranking musi być liczbą");
+                        }
+                        DateTime selectedDate = birthday.SelectedDate ?? DateTime.Now;
+                        player.Date = selectedDate;
+                       
+
+                        if (countryComboBox.SelectedItem is Adress selectedAddress)
+                        {
+                            player.CountryId = selectedAddress.Id;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wybierz kraj");
+                            return;
+                        }
+                        db.Player.Add(player);
+                        db.SaveChanges();
+                        MessageBox.Show("Dodano zawodnika ");
+
                     }
-                    db.SaveChanges();
-                    MessageBox.Show("Dodano zawodnika ");
+                   
                 }
+            }
+            
+        }
+
+        private void ChessMainwindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(player!= null && player.Id != 0)
+            {
+                name.Text = player.Name;
+                surname.Text = player.Surname;
+
+                rank.Text = player.Rank.ToString();
+                birthday.SelectedDate = Convert.ToDateTime(player.Date);
+
+                countryComboBox.SelectedItem = player.CountryId;
             }
         }
     }

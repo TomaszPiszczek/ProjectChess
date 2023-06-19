@@ -6,7 +6,7 @@
         xmlns:db="clr-namespace:ProjectChess.DBConnection"
         xmlns:local="clr-namespace:ProjectChess"
         mc:Ignorable="d"
-              Title="ChessRanking" Name="ChessMainwindow" Height="740" Width="1200" FontSize="24" WindowStartupLocation="CenterScreen" FontWeight="Bold" Background="#FF8EAFF7">
+              Title="ChessRanking" Name="ChessMainwindow" Height="740" Width="1200" FontSize="24" WindowStartupLocation="CenterScreen" FontWeight="Bold" Background="#FF8EAFF7" Loaded="ChessMainwindow_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -40,7 +40,7 @@
           DisplayMemberPath="Country" />
 
 
-        <Button x:Name="btnSave" Content="Dodaj" Grid.Row="5" Width="200" Height="60" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnSave_Click"></Button>
+        <Button x:Name="btnSave" Content="Zapisz" Grid.Row="5" Width="200" Height="60" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnSave_Click"></Button>
         <Button x:Name="btnClose" Content="Zamknij" Grid.Column="1" Width="200" Height="60" Grid.Row="5" Margin="50,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnClose_Click"></Button>
 
 
