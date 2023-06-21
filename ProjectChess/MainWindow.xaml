@@ -70,11 +70,19 @@
         </Button>
     </Grid>
     <Window.Resources>
-        <DataTemplate  x:Name="PlayerTemplate" DataType="{x:Type viewmodels:PlayerViewModel}">
+        <DataTemplate  x:Name="PlayerTemplat" DataType="{x:Type viewmodels:PlayerViewModel}">
             <views:PlayerList>
 
             </views:PlayerList>
             
         </DataTemplate>
+        <DataTemplate x:Name="PlayerTemplate" DataType="{x:Type viewmodels:RankingViewModel}">
+            <views:RankingList>
+
+            </views:RankingList>
+
+        </DataTemplate>
+
     </Window.Resources>
+   
 </Window>

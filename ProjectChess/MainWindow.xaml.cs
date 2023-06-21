@@ -29,7 +29,8 @@ namespace ProjectChess
 
         private void btnRanking_Click(object sender, RoutedEventArgs e)
         {
-          
+            lblWindowName.Content = "Ranking List";
+            DataContext = new RankingViewModel();
         }
 
         private void btnPlayers_Click(object sender, RoutedEventArgs e)
