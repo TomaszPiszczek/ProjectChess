@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectChess", "ProjectChess\ProjectChess.csproj", "{D79DAB23-4091-4875-AAF2-E65C39278655}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{E16E3457-A6B7-4204-8FE0-D49DA147AED8}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "ProjectChess\Setup1.vdproj", "{E16E3457-A6B7-4204-8FE0-D49DA147AED8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

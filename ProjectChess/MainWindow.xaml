@@ -41,7 +41,7 @@
                 <TextBlock Text="RANKING" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button Grid.Row="3" Name="btnResults" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button Grid.Row="3" Name="btnResults" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnResults_Click">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -50,7 +50,7 @@
                 <TextBlock Text="RESULTS" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button Grid.Row="4" Name="btnGames" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button Grid.Row="4" Name="btnGames" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnGames_Click">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -80,6 +80,12 @@
             <views:RankingList>
 
             </views:RankingList>
+
+        </DataTemplate>
+        <DataTemplate x:Name="MatchTemplate" DataType="{x:Type viewmodels:MatchViewModel}">
+            <views:MatchList>
+
+            </views:MatchList>
 
         </DataTemplate>
 

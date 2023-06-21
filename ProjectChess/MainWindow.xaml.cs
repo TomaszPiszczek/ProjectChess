@@ -40,5 +40,16 @@ namespace ProjectChess
             DataContext = new PlayerViewModel();
             
         }
+
+        private void btnResults_Click(object sender, RoutedEventArgs e)
+        {
+            lblWindowName.Content = "Player List";
+            DataContext = new MatchViewModel();
+        }
+
+        private void btnGames_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
