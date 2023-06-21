@@ -58,6 +58,8 @@ namespace ProjectChess
                         catch (Exception ex)
                         {
                             MessageBox.Show("Ranking musi być liczbą");
+
+                            return;
                         }
 
                         DateTime selectedDate = birthday.SelectedDate ?? DateTime.Now;

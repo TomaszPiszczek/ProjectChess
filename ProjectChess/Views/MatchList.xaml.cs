@@ -40,7 +40,7 @@ namespace ProjectChess.Views
         }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddPlayer page = new AddPlayer();
+            AddMatch page = new AddMatch();
             page.ShowDialog();
             using (ChessContext db = new ChessContext())
             {
@@ -49,40 +49,8 @@ namespace ProjectChess.Views
             }
         }
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            Player player = (Player)gridPlayer.SelectedItem;
-            AddPlayer page = new AddPlayer();
-            page.player = player;
-            page.ShowDialog();
-            using (ChessContext db = new ChessContext())
-            {
+      
 
-                gridPlayer.ItemsSource = db.Player.ToList();
-            }
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            Player model = (Player)gridPlayer.SelectedItem;
-            if (model != null && model.Id != 0)
-            {
-                if (MessageBox.Show("Czy usunąć zawodnika?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                {
-                    ChessContext db = new ChessContext();
-                    List<Player> players = db.Player.Where(x => x.Id == model.Id).ToList();
-                    foreach (var item in players)
-                    {
-                        db.Player.Remove(item);
-                    }
-                    Player player = db.Player.Find(model.Id);
-                    db.Player.Remove(player);
-                    db.SaveChanges();
-                    MessageBox.Show("Usunięto");
-                    gridPlayer.ItemsSource = db.Player.ToList();
-                }
-            }
-
-        }
+        
     }
 }
