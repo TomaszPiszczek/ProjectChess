@@ -28,12 +28,13 @@ public partial class Player
         }
     }
 
-    [NotMapped]
-    public string CountryName => Adress?.Country;
 
     public DateTime Date { get; set; }
    
     public int CountryId { get; set; }
+
+    [NotMapped]
+    public string CountryName { get; set; }
 
     public virtual Adress Adress { get; set; } = null!;
 

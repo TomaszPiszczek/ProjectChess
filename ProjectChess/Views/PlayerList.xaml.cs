@@ -27,6 +27,10 @@ namespace ProjectChess.Views
             using(ChessContext db = new ChessContext())
             {
                 List<Player> list = db.Player.ToList() ;
+                foreach (Player player in list)
+                {
+                    player.CountryName = db.Adresses.FirstOrDefault(a => a.Id == player.CountryId)?.Country ?? "brak";
+                }
                 gridPlayer.ItemsSource = list;
             }
         }

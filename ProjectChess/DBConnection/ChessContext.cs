@@ -29,6 +29,7 @@ public partial class ChessContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+     
         modelBuilder.Entity<Adress>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_adresy");

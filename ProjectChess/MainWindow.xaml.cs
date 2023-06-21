@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjectChess.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectChess
 {
@@ -37,6 +38,7 @@ namespace ProjectChess
         {
             lblWindowName.Content = "Player List";
             DataContext = new PlayerViewModel();
+            
         }
     }
 }
